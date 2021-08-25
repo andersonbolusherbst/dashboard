@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import requests
 import config
-from iex import IEXStock
 import datetime as dt
 
 st.title("Your Information Portal")
