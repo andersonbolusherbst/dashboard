@@ -97,7 +97,7 @@ if option == "Example Option - Start Here":
 
     st.header("This is an example")
     st.write("We can connect to an external API and pull the data here so that you can view it effortlessly.")
-    st.write("You might use also use these dashboards to display data analytics and monthly reports. We can automate this process to retrieve live data, to add it to your database if its not already there, and to rerun a model with the new data.")
+    st.write("You might also use these dashboards to display data analytics and monthly reports. We can automate this process to retrieve live data, to add it to your database if its not already there, and to rerun a model with the new data.")
     st.subheader("1) To explore how this might look, select a dashboard from the sidebar.")
     st.subheader("2) These can also be used for customised web applications for your business, such as the example below.")
     
