@@ -4,6 +4,7 @@ import numpy as np
 import requests
 import config
 import datetime as dt
+from iex import IEXStock
 
 st.title("Your Information Portal")
 st.write("Display analytics, run models and automate data processes")
