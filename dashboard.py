@@ -6,10 +6,10 @@ import config
 import datetime as dt
 from iex import IEXStock
 
-st.title("Your Information Portal")
+st.title("HAB LABS")
 st.write("Display analytics, run models and automate data processes")
 
-option = st.sidebar.selectbox("Please Choose Your Dashboard", ('Example Option - Start Here','API: Stock Info', 'Machinel Learning'))
+option = st.sidebar.selectbox("Please Choose Your Dashboard", ('Start Here','API: Stock Info', 'Machinel Learning','Web App"))
 
 st.header(option)
 
@@ -22,7 +22,7 @@ if option == 'API: Stock Info':
 
     screen =st.sidebar.selectbox("View",("Overview", "Price Data", "Social Media Mentions"))
     st.title(screen)
-    st.subheader("Put your favorite stock ticket in the sidebar!")
+    st.subheader("Put your favorite stock ticker in the sidebar!")
     
     if screen == "Overview":
         stock = IEXStock(config.IEX_API_TOKEN, symbol)
@@ -78,7 +78,7 @@ if option == 'API: Stock Info':
         
     if screen == "Social Media Mentions":
     
-        symbol = st.sidebar.text_input("Symbol", value='NFLX', max_chars=5)
+        #symbol = st.sidebar.text_input("Symbol", value='NFLX', max_chars=5)
         #st.subheader('stocktwits')
         #gets most recent mentions of symbol
         #st.image(f"https://charts2.finviz.com/chart.ashx?t={symbol}")
@@ -97,11 +97,11 @@ if option == 'API: Stock Info':
         
 
 
-if option == "Example Option - Start Here":
+if option == "Start Here":
     
     st.header("Explore this dashboard to learn more about our services")
-    st.subheader("1)We can connect to an external API and pull the data here so that you can view it effortlessly. Check out the 'API' option to see this might work for you.")
-    st.subheader("2)You might also use these dashboards to display data analytics and monthly reports. We can automate this process to retrieve live data, to add it to your database if its not already there, and to rerun a model with the new data. Check out the 'Machine Learning' option to see how this might work for you")
+    st.subheader("1)We can connect to an external API to fetch data so that you can view it effortlessly. Check out the 'API' option to see this might work for you.")
+    st.subheader("2)You might also use these dashboards to display data analytics and machine learning. Check out the 'Machine Learning' option to see how this might work for you")
     
 
   
@@ -109,7 +109,6 @@ if option == "Example Option - Start Here":
 if option == "Machine Learning":
     model =st.sidebar.selectbox("Model",("Prediction", "Classification"))
     st.header("You are currently viewing the ", model, "model.")
-    
     if model =="Prediction":
         st.subheader("machine learning ", model, "project info goes here")
         
