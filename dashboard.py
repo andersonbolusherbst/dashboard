@@ -88,17 +88,17 @@ if option == 'API: Stock Info':
 
         #printing body, datetime and person of mention
         for message in data['messages']:
-        st.write(message['body'])
-        st.write(message['created_at'])
-        st.write(message['user']['username'])
-        st.image(message['user']['avatar_url'])
+            st.write(message['body'])
+            st.write(message['created_at'])
+            st.write(message['user']['username'])
+            st.image(message['user']['avatar_url'])
 
 
         
 
 
 if option == "Example Option - Start Here":
-
+    
     st.header("Explore this dashboard to learn more about our services")
     st.subheader("1)We can connect to an external API and pull the data here so that you can view it effortlessly. Check out the 'API' option to see this might work for you.")
     st.subheader("2)You might also use these dashboards to display data analytics and monthly reports. We can automate this process to retrieve live data, to add it to your database if its not already there, and to rerun a model with the new data. Check out the 'Machine Learning' option to see how this might work for you")
