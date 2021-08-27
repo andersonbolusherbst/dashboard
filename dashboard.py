@@ -108,12 +108,12 @@ if option == "Start Here":
         
 if option == "Machine Learning":
     model =st.sidebar.selectbox("Model",("Prediction", "Classification"))
-    st.header(f"You are currently viewing the "+model+"model.")
+    st.header(f"You are currently viewing the "+model+" model.")
     if model =="Prediction":
-        st.subheader("machine learning " +model+"project info goes here")
+        st.subheader("machine learning " +model+" project info goes here")
         
     if model =="Classification":
-        st.subheader("machine learning "+model+"project info goes here")
+        st.subheader("machine learning "+model+" project info goes here")
         
 if option == "Web App":
     st.header("Custom Web Apps")
