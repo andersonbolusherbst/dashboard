@@ -9,7 +9,7 @@ from iex import IEXStock
 st.title("HAB LABS")
 st.write("Display analytics, run models and automate data processes")
 
-option = st.sidebar.selectbox("Please Choose Your Dashboard", ('Start Here','API: Stock Info', 'Machinel Learning','Web App"))
+option = st.sidebar.selectbox("Please Choose Your Dashboard", ('Start Here','API: Stock Info', 'Machinel Learning','Web App'))
 
 st.header(option)
 
