@@ -9,18 +9,18 @@ from iex import IEXStock
 st.title("Your Information Portal")
 st.write("Display analytics, run models and automate data processes")
 
-option = st.sidebar.selectbox("Please Choose Your Dashboard", ('Example Option - Start Here','Stock Info', 'Social Media Mentions'))
+option = st.sidebar.selectbox("Please Choose Your Dashboard", ('Example Option - Start Here','API: Stock Info', 'Machinel Learning'))
 
 st.header(option)
 
 
-if option == 'Stock Info':
+if option == 'API: Stock Info':
     symbol = st.sidebar.text_input("Symbol", value="NFLX")
     st.header("Asset: "+ symbol)
     
     
 
-    screen =st.sidebar.selectbox("View",("Overview", "Price Data"))
+    screen =st.sidebar.selectbox("View",("Overview", "Price Data", "Social Media Mentions"))
     st.title(screen)
     st.subheader("Put your favorite stock ticket in the sidebar!")
     
@@ -76,32 +76,47 @@ if option == 'Stock Info':
         st.write("Next dividend: ", data['nextDividendDate'])
         st.write("Dividend yield: ", data['dividendYield'])
         
-if option == "Social Media Mentions":
+    if screen == "Social Media Mentions":
     
-    symbol = st.sidebar.text_input("Symbol", value='NFLX', max_chars=5)
-    #st.subheader('stocktwits')
-    #gets most recent mentions of symbol
-    #st.image(f"https://charts2.finviz.com/chart.ashx?t={symbol}")
-    r = requests.get(f"https://api.stocktwits.com/api/2/streams/symbol/{symbol}.json")
-    data = r.json()
-    st.subheader("Connect to social platforms and retrieve the data available. Below are posts from 'Stocktwits' mentioning the selected stock in the sidebar")
+        symbol = st.sidebar.text_input("Symbol", value='NFLX', max_chars=5)
+        #st.subheader('stocktwits')
+        #gets most recent mentions of symbol
+        #st.image(f"https://charts2.finviz.com/chart.ashx?t={symbol}")
+        r = requests.get(f"https://api.stocktwits.com/api/2/streams/symbol/{symbol}.json")
+        data = r.json()
+        st.subheader("Connect to social platforms and retrieve the data available. Below are posts from 'Stocktwits' mentioning the selected stock in the sidebar")
 
-    #printing body, datetime and person of mention
-    for message in data['messages']:
+        #printing body, datetime and person of mention
+        for message in data['messages']:
         st.write(message['body'])
         st.write(message['created_at'])
         st.write(message['user']['username'])
         st.image(message['user']['avatar_url'])
 
+
+        
+
+
 if option == "Example Option - Start Here":
 
-    st.header("This is an example")
-    st.write("We can connect to an external API and pull the data here so that you can view it effortlessly.")
-    st.write("You might also use these dashboards to display data analytics and monthly reports. We can automate this process to retrieve live data, to add it to your database if its not already there, and to rerun a model with the new data.")
-    st.subheader("1) To explore how this might look, select a dashboard from the sidebar.")
-    st.subheader("2) These can also be used for customised web applications for your business, such as the example below.")
+    st.header("Explore this dashboard to learn more about our services")
+    st.subheader("1)We can connect to an external API and pull the data here so that you can view it effortlessly. Check out the 'API' option to see this might work for you.")
+    st.subheader("2)You might also use these dashboards to display data analytics and monthly reports. We can automate this process to retrieve live data, to add it to your database if its not already there, and to rerun a model with the new data. Check out the 'Machine Learning' option to see how this might work for you")
     
 
+  
+        
+if option == "Machine Learning":
+    model =st.sidebar.selectbox("Model",("Prediction", "Classification"))
+    st.header("You are currently viewing the ", model, "model.")
+    
+    if model =="Prediction":
+        st.subheader("machine learning ", model, "project info goes here")
+        
+    if model =="Classification":
+        st.subheader("machine learning ", model, "project info goes here")
+        
+if option == "Web App":
     st.header("Custom Web Apps")
     st.write("These web apps can also be useful for operational activities - such as a team capturing data")
     team_member = st.text_input("Team member name:  ")
@@ -110,4 +125,8 @@ if option == "Example Option - Start Here":
         st.write("The following data has been added to the database, thank you.")
         st.write(team_member)
         st.write(info)
+    
+        
+    
+    
 
